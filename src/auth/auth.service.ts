@@ -36,7 +36,7 @@ export class AuthService {
       );
     }
 
-    const validPassword = compareHash(user.password, dbUser.password);
+    const validPassword = await compareHash(user.password, dbUser.password);
 
     if (!validPassword) {
       throw new HttpException(
